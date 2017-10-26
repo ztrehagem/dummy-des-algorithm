@@ -17,11 +17,11 @@ export function keygen(seed) {
 }
 
 function p10(v, n) {
-  return transpose(v, n, [1,2,3,4,5,6,7,8,9,10]);
+  return transpose(v, n, [3,5,2,7,4,10,1,9,8,6]);
 }
 
 function p8(v, n) {
-  return transpose(v, n, [1,2,3,4,6,7,8,9]);
+  return transpose(v, n, [6,3,7,4,8,5,10,9]);
 }
 
 function rotate(v, n, m) {
