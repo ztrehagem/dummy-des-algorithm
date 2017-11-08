@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.mjs",
   "scripts": {
-    "start": "node --experimental-modules ./index.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --experimental-modules ./strtest.mjs",
+    "test": "node --experimental-modules ./test.mjs"
   },
   "author": "",
   "license": "ISC"

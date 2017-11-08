@@ -13,14 +13,15 @@ const question = (str) => new Promise(res => rl.question(str, res));
   const key = await question('key [0-1024] > ');
   const str = await question('str > ');
   rl.close();
+
   const converter = new Converter(parseInt(key));
-  const strarr = str.split('');
-  const bytearr = strarr.map(c => c.charCodeAt(0));
-  const encarr = bytearr.map(b => converter.encrypt(b));
-  const encstr = String.fromCharCode(...encarr);
+
+  const encbytearr = str.split('').map(c => c.charCodeAt(0)).map(b => converter.encrypt(b));
+  const encstr = String.fromCharCode(...encbytearr);
   console.log('--- encrypted ---');
-  console.log(encarr);
+  console.log(encbytearr);
   console.log(encstr);
+
   const decbytearr = encstr.split('').map(c => c.charCodeAt(0)).map(b => converter.decrypt(b));
   const decstr = String.fromCharCode(...decbytearr);
   console.log('--- decrypted ---');
