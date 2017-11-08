@@ -1,5 +1,5 @@
-import Converter from './converter';
-import { bitstr } from './utils';
+import Converter from './lib/converter';
+import { bitstr } from './lib/utils';
 
 const origin = 0b10110110;
 console.log(bitstr(origin, 8), 'origin');
