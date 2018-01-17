@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 const question = (str) => new Promise(res => rl.question(str, res));
 
 (async () => {
-  const key = await question('key [0-1024] > ');
+  const key = await question('key [0-1023] > ');
   const str = await question('str > ');
   rl.close();
 
@@ -22,9 +22,19 @@ const question = (str) => new Promise(res => rl.question(str, res));
   console.log(encbytearr);
   console.log(encstr);
 
+  // const decbytearr = encstr.split('').map(c => c.charCodeAt(0)).map(b => converter.decrypt(b));
+  // const decstr = String.fromCharCode(...decbytearr);
+  // console.log('--- decrypted ---');
+  // console.log(decbytearr);
+  // console.log(decstr);
+  console.log('--- decrypting... ---');
+  const keys = new Array(1024).fill(0).map((v, i) => i);
+  keys.forEach(key => trydecrypt(key, encstr));
+})();
+
+function trydecrypt(key, encstr) {
+  const converter = new Converter(key);
   const decbytearr = encstr.split('').map(c => c.charCodeAt(0)).map(b => converter.decrypt(b));
   const decstr = String.fromCharCode(...decbytearr);
-  console.log('--- decrypted ---');
-  console.log(decbytearr);
   console.log(decstr);
-})();
+}
