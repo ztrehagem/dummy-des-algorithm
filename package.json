@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.mjs",
   "scripts": {
-    "start": "node --experimental-modules ./strtest.mjs",
-    "test": "node --experimental-modules ./test.mjs"
+    "test": "node --experimental-modules ./strtest.mjs",
+    "test-single": "node --experimental-modules ./test.mjs"
   },
   "author": "",
   "license": "ISC"
