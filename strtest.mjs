@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 const question = (str) => new Promise(res => rl.question(str, res));
 
 (async () => {
-  const key = await question('key [0-1024] > ');
+  const key = await question('key [0-1023] > ');
   const str = await question('str > ');
   rl.close();
 
